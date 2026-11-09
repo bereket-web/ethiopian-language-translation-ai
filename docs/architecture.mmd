@@ -1,0 +1,17 @@
+flowchart LR
+    A[Google FLEURS TSVs<br/>CC BY 4.0; pinned revision] --> B[Transcript-only preparation<br/>ID join, NFC, dedupe, leakage checks]
+    B --> C[Train pairs<br/>local-only]
+    B --> D[Validation pairs<br/>local-only]
+    B --> E[Test pairs<br/>local-only]
+    C --> F[IBM Model 1 lexical baseline]
+    C --> G[M2M100 LoRA fine-tuning<br/>MIT base checkpoint]
+    D --> H[Validation selection<br/>mean chrF++]
+    F --> I[Held-out test benchmark]
+    G --> H
+    H --> I
+    E --> I
+    J[Copy baseline] --> I
+    K[M2M100 zero-shot] --> I
+    I --> L[Aggregate BLEU + chrF++]
+    G --> M[Local FastAPI demo]
+    K --> M

@@ -1,0 +1,121 @@
+{
+  "task": "Amharic–English bidirectional sentence translation",
+  "dataset": {
+    "id": "google/fleurs",
+    "url": "https://huggingface.co/datasets/google/fleurs",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "license": "CC BY 4.0",
+    "split": "validation",
+    "aligned_pairs_evaluated": 124,
+    "seed": 42,
+    "selection_note": "Validation split used only for model selection and development."
+  },
+  "model": {
+    "id": "facebook/m2m100_418M",
+    "revision": "55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636",
+    "license": "MIT",
+    "adapter_evaluated": true,
+    "decoding": {
+      "num_beams": 2,
+      "batch_size": 16,
+      "max_new_tokens": 128
+    }
+  },
+  "metrics": "SacreBLEU corpus BLEU and chrF++ (0–100; higher is better); one reference per source.",
+  "results": {
+    "Copy baseline": {
+      "directions": {
+        "en->am": {
+          "bleu": 0.0991,
+          "chrf++": 0.6011,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        },
+        "am->en": {
+          "bleu": 0.0957,
+          "chrf++": 0.4694,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        }
+      },
+      "mean_bleu": 0.0974,
+      "mean_chrf++": 0.5353
+    },
+    "IBM Model 1 lexical baseline": {
+      "directions": {
+        "en->am": {
+          "bleu": 0.3813,
+          "chrf++": 12.5121,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        },
+        "am->en": {
+          "bleu": 1.2048,
+          "chrf++": 14.8419,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        }
+      },
+      "mean_bleu": 0.7931,
+      "mean_chrf++": 13.677
+    },
+    "M2M100 zero-shot": {
+      "directions": {
+        "en->am": {
+          "bleu": 0.3676,
+          "chrf++": 6.5615,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        },
+        "am->en": {
+          "bleu": 4.6826,
+          "chrf++": 26.1331,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        }
+      },
+      "mean_bleu": 2.5251,
+      "mean_chrf++": 16.3473
+    },
+    "M2M100 FLEURS LoRA": {
+      "directions": {
+        "en->am": {
+          "bleu": 0.4508,
+          "chrf++": 7.9417,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        },
+        "am->en": {
+          "bleu": 9.3408,
+          "chrf++": 32.5307,
+          "n": 124,
+          "metric_scale": "SacreBLEU score, 0–100; higher is better",
+          "bleu_signature": null,
+          "chrf_signature": null
+        }
+      },
+      "mean_bleu": 4.8958,
+      "mean_chrf++": 20.2362
+    }
+  },
+  "notes": [
+    "Each aligned sentence ID is deduplicated; conflicting transcript IDs are excluded.",
+    "Only aggregate metrics are committed; predictions and raw transcripts stay local and are ignored by Git.",
+    "FLEURS is small and read-speech-domain; scores do not establish conversational or domain-general quality.",
+    "BLEU/chrF are lexical overlap metrics and do not replace human adequacy, fluency, or safety review."
+  ]
+}

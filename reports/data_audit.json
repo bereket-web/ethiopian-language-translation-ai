@@ -1,0 +1,85 @@
+{
+  "dataset_id": "google/fleurs",
+  "dataset_url": "https://huggingface.co/datasets/google/fleurs",
+  "dataset_license": "CC BY 4.0",
+  "dataset_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "dataset_citation": "Conneau et al. (2022), FLEURS: Few-shot Learning Evaluation of Universal Representations of Speech, https://arxiv.org/abs/2205.12446",
+  "languages": {
+    "amharic": "am_et",
+    "english": "en_us"
+  },
+  "alignment_key": "FLEURS source sentence ID (first column in official TSVs)",
+  "text_field": "raw transcript (third TSV column); one transcript per sentence ID",
+  "source_tsv_sha256": {
+    "train/am_et.tsv": "8ed7f208e511a08be00bca686706368ced79c876a576ac5bba03308377c6e233",
+    "train/en_us.tsv": "3ccfc83672cc03a835143e325abb38b4163e3a21725bc1a7d1165bc309b95852",
+    "validation/am_et.tsv": "6e37bdc090862a810a4e28b5f2148e35ec838b642dbc01ee6ad9504848aa1569",
+    "validation/en_us.tsv": "9d57ee7e91e9d4c92edb39f6bbea668ef8dc2a3ff96eb510d5580b2ad05d17ec",
+    "test/am_et.tsv": "92c5a8c1837a83d719e890946872dc69d164f5e41011919e49ea86984e8eca0d",
+    "test/en_us.tsv": "74c046239374deeb60fa63f258f907388093a32bcaa3140965f70ef05c79f7ca"
+  },
+  "splits": {
+    "train": {
+      "amharic": {
+        "rows_with_transcripts": 2753,
+        "distinct_sentence_ids": 1454,
+        "conflicting_sentence_ids_excluded": 6,
+        "usable_sentence_ids": 1448
+      },
+      "english": {
+        "rows_with_transcripts": 2518,
+        "distinct_sentence_ids": 1465,
+        "conflicting_sentence_ids_excluded": 4,
+        "usable_sentence_ids": 1461
+      },
+      "aligned_pairs_before_cross_split_filter": 1407,
+      "amharic_only_ids": 41,
+      "english_only_ids": 54,
+      "usable_aligned_pairs": 1407
+    },
+    "validation": {
+      "amharic": {
+        "rows_with_transcripts": 223,
+        "distinct_sentence_ids": 124,
+        "conflicting_sentence_ids_excluded": 0,
+        "usable_sentence_ids": 124
+      },
+      "english": {
+        "rows_with_transcripts": 394,
+        "distinct_sentence_ids": 150,
+        "conflicting_sentence_ids_excluded": 0,
+        "usable_sentence_ids": 150
+      },
+      "aligned_pairs_before_cross_split_filter": 124,
+      "amharic_only_ids": 0,
+      "english_only_ids": 26,
+      "usable_aligned_pairs": 124
+    },
+    "test": {
+      "amharic": {
+        "rows_with_transcripts": 516,
+        "distinct_sentence_ids": 296,
+        "conflicting_sentence_ids_excluded": 0,
+        "usable_sentence_ids": 296
+      },
+      "english": {
+        "rows_with_transcripts": 647,
+        "distinct_sentence_ids": 350,
+        "conflicting_sentence_ids_excluded": 0,
+        "usable_sentence_ids": 350
+      },
+      "aligned_pairs_before_cross_split_filter": 296,
+      "amharic_only_ids": 0,
+      "english_only_ids": 54,
+      "usable_aligned_pairs": 296
+    }
+  },
+  "cross_split_sentence_id_overlaps": {
+    "train_and_validation": 0,
+    "train_and_test": 0,
+    "validation_and_test": 0
+  },
+  "validation_test_exact_text_overlaps_removed": 0,
+  "train_heldout_exact_text_overlaps_removed": 0,
+  "redistribution": "Source TSVs and processed text are local-only and excluded from public releases."
+}

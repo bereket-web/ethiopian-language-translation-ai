@@ -1,0 +1,58 @@
+[project]
+name = "ethiopian-language-translation-ai"
+version = "0.1.0"
+description = "A rights-aware English–Amharic translation benchmark and local inference service"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+authors = [{ name = "Project contributor" }]
+dependencies = [
+  "torch==2.5.1+cpu",
+  "transformers==4.46.3",
+  "peft==0.14.0",
+  "sentencepiece==0.2.0",
+  "sacrebleu==2.5.1",
+  "huggingface-hub==0.27.1",
+  "fastapi==0.115.6",
+  "uvicorn==0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.4",
+  "httpx==0.28.1",
+  "ruff==0.9.2",
+  "build==1.2.2.post1",
+]
+
+[project.scripts]
+ethiopian-translation-prepare = "ethiopian_translation.data:main"
+ethiopian-translation-train = "ethiopian_translation.training:main"
+ethiopian-translation-evaluate = "ethiopian_translation.evaluation:main"
+
+[build-system]
+requires = ["setuptools>=75.6,<76"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

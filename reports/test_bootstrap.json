@@ -1,0 +1,39 @@
+{
+  "metric": "SacreBLEU chrF++",
+  "method": "Paired sentence-ID bootstrap; same sampled IDs used in both directions",
+  "split": "test",
+  "n_aligned_pairs": 296,
+  "repetitions": 1000,
+  "seed": 2026,
+  "observed": {
+    "en->am": {
+      "base_chrf++": 6.7129,
+      "adapter_chrf++": 7.2949,
+      "delta": 0.582
+    },
+    "am->en": {
+      "base_chrf++": 27.9757,
+      "adapter_chrf++": 33.9054,
+      "delta": 5.9297
+    }
+  },
+  "observed_macro_mean_delta": 3.2559,
+  "delta_ci95": {
+    "en->am": {
+      "lower_95": -0.1923,
+      "upper_95": 1.282
+    },
+    "am->en": {
+      "lower_95": 4.8354,
+      "upper_95": 7.0992
+    },
+    "macro_mean": {
+      "lower_95": 2.566,
+      "upper_95": 3.8722
+    }
+  },
+  "release_gate": {
+    "criterion": "macro mean chrF++ gain lower 95% paired-bootstrap bound > 0",
+    "passed": true
+  }
+}
